@@ -23,8 +23,10 @@ exports.add = async (req, res) => {
 
       const fileName = file.path.split('/').slice(-1)[0]; // cut only filename from full path, e.g. C:/test/abc.jpg -> abc.jpg
 
+      const fileExt = fileName.split('.')[fileName.split('.').length - 1];  
+
       if(
-        (fileName.split('.')[1] === 'jpg' || fileName.split('.')[1] === 'gif' || fileName.split('.')[1] === 'png') 
+        (fileExt === 'jpg' || fileExt === 'gif' || fileExt === 'png') 
         && titleMatched.length === title.length
         && authorMatched.length === author.length
         && emailMatched.length === email.length
